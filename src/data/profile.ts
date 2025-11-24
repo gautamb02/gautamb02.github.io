@@ -8,8 +8,8 @@ export const profile: ProfileData = {
     "I design cloud-native frontends that convert business goals into delightful experiences.",
   bio: "Former startup engineer turned product lead with a focus on resilient design systems, shipping experiments quickly, and mentoring teams to own their outcomes.",
   availability: "Open for senior frontend + product engineering roles",
-  contactEmail: "hello@gautambhagat.com",
-  resumeUrl: "https://read.cv/gautambhagat",
+  contactEmail: "gautambhagat.business@gmail.com.com",
+  resumeUrl: "/resume.pdf",
   socials: [
     {
       platform: "GitHub",
@@ -147,8 +147,8 @@ export const profile: ProfileData = {
   contact: [
     {
       label: "Email",
-      value: "hello@gautambhagat.com",
-      href: "mailto:hello@gautambhagat.com",
+      value: "gautambhagat.business@gmail.com.com",
+      href: "mailto:gautambhagat.business@gmail.com.com",
     },
     {
       label: "Calendly",
