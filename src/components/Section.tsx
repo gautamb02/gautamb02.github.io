@@ -7,15 +7,12 @@ type SectionProps = PropsWithChildren<{
   description?: string;
 }>;
 
-const Section = ({ id, eyebrow, title, description, children }: SectionProps) => {
+const Section = ({ id, title, description, children }: SectionProps) => {
   return (
     <section id={id} className="section">
       <div className="section__header">
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <div>
-          <h2>{title}</h2>
-          {description && <p className="section__description">{description}</p>}
-        </div>
+        <h2>{title}</h2>
+        {description && <p className="section__description">{description}</p>}
       </div>
       <div className="section__body">{children}</div>
     </section>

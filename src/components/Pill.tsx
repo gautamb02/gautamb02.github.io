@@ -7,4 +7,3 @@ const Pill = ({ label }: PillProps) => {
 };
 
 export default Pill;
-

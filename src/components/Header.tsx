@@ -16,17 +16,34 @@ const Header = ({ profile }: HeaderProps) => {
   return (
     <header className="site-header">
       <div className="site-header__branding">
-        <div>
-          <p className="eyebrow">Portfolio · Gautam Bhagat</p>
-          <h1>{profile.name}</h1>
-          <p className="subtitle">
-            {profile.role} · {profile.location}
-          </p>
-        </div>
-        <a className="button button--ghost" href={profile.resumeUrl} target="_blank" rel="noreferrer">
-          View résumé
-        </a>
+        <h1>{profile.Name}</h1>
       </div>
+
+      <div className="page-properties">
+        <div className="property-row">
+          <div className="property-label">👤 Role</div>
+          <div className="property-value">{profile.Role}</div>
+        </div>
+        <div className="property-row">
+          <div className="property-label">📍 Location</div>
+          <div className="property-value">{profile.Location}</div>
+        </div>
+        <div className="property-row">
+          <div className="property-label">✉️ Contact</div>
+          <div className="property-value">
+            <a href={`mailto:${profile.ContactEmail}`}>{profile.ContactEmail}</a>
+          </div>
+        </div>
+        <div className="property-row">
+          <div className="property-label">📄 Résumé</div>
+          <div className="property-value">
+            <a href={profile.ResumeURL} target="_blank" rel="noreferrer">
+              Download.pdf
+            </a>
+          </div>
+        </div>
+      </div>
+
       <nav className="site-nav">
         {navLinks.map((link) => (
           <a key={link.id} href={`#${link.id}`}>

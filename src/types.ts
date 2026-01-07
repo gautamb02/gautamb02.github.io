@@ -44,19 +44,19 @@ export type ContactChannel = {
 };
 
 export type ProfileData = {
-  name: string;
-  role: string;
-  location: string;
-  headline: string;
-  bio: string;
-  availability: string;
-  contactEmail: string;
-  resumeUrl: string;
-  socials: SocialLink[];
-  stats: Stat[];
-  experiences: Experience[];
-  projects: Project[];
-  skills: SkillCategory[];
-  contact: ContactChannel[];
+  Name: string;
+  Role: string;
+  Location: string;
+  Headline: string;
+  Bio: string;
+  Availability: string;
+  ContactEmail: string;
+  ResumeURL: string;
+  Socials: SocialLink[];
+  Stats: Stat[];
+  Experiences: Experience[];
+  Projects: Project[];
+  Skills: SkillCategory[];
+  Contact: ContactChannel[];
 };
 

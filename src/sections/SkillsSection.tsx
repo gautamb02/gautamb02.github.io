@@ -22,12 +22,11 @@ const SkillsSection = ({ profile }: SkillsSectionProps) => {
   return (
     <Section
       id="skills"
-      eyebrow="Toolkit"
-      title="A balanced stack for product velocity."
+      title="Toolkit & Skills"
       description="From systems thinking to pixels and perf budgets."
     >
       <div className="skills-grid">
-        {profile.skills.map((category) => (
+        {profile.Skills.map((category) => (
           <SkillsCard key={category.title} category={category} />
         ))}
       </div>

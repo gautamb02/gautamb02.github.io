@@ -7,20 +7,24 @@ type ExperienceSectionProps = {
 };
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
+  const getEmoji = (company: string) => {
+    if (company.includes("Lightspeed")) return "💼";
+    if (company.includes("Razorpay")) return "💳";
+    if (company.includes("Fractal")) return "📊";
+    return "🏢";
+  };
+
   return (
     <article className="experience-card">
       <header>
         <div>
-          <p className="eyebrow">{experience.period}</p>
-          <h3>{experience.role}</h3>
+          <h3 style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span>{getEmoji(experience.company)}</span>
+            {experience.role}
+          </h3>
           <p className="subtitle">
-            {experience.company} · {experience.location}
+            {experience.company} · {experience.period}
           </p>
-        </div>
-        <div className="experience-card__stack">
-          {experience.stack.map((item) => (
-            <Pill key={item} label={item} />
-          ))}
         </div>
       </header>
       <p>{experience.summary}</p>
@@ -29,6 +33,11 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
           <li key={highlight}>{highlight}</li>
         ))}
       </ul>
+      <div className="experience-card__stack">
+        {experience.stack.map((item) => (
+          <Pill key={item} label={item} />
+        ))}
+      </div>
     </article>
   );
 };
@@ -37,12 +46,11 @@ const ExperienceSection = ({ profile }: ExperienceSectionProps) => {
   return (
     <Section
       id="experience"
-      eyebrow="Experience"
-      title="Lead pods, align stakeholders, ship measurable impact."
-      description="Snapshots of product work across SaaS, fintech, and platform teams."
+      title="Work Experience"
+      description="Lead pods, align stakeholders, ship measurable impact."
     >
       <div className="experience-grid">
-        {profile.experiences.map((experience) => (
+        {profile.Experiences.map((experience) => (
           <ExperienceCard key={experience.company} experience={experience} />
         ))}
       </div>

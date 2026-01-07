@@ -10,9 +10,17 @@ type LayoutProps = PropsWithChildren<{
 const Layout = ({ profile, children }: LayoutProps) => {
   return (
     <div className="layout">
-      <Header profile={profile} />
-      <main className="main-content">{children}</main>
-      <Footer profile={profile} />
+      <div className="cover-container">
+        <img src="/cover.png" alt="Profile Cover" className="cover-image" />
+      </div>
+      <div className="page-container">
+        <div className="profile-icon">
+          <img src="/avatar.png" alt={profile.Name} />
+        </div>
+        <Header profile={profile} />
+        <main className="main-content">{children}</main>
+        <Footer profile={profile} />
+      </div>
     </div>
   );
 };

@@ -1,16 +1,16 @@
 import { ProfileData } from "../types";
 
 export const profile: ProfileData = {
-  name: "Gautam Bhagat",
-  role: "Product-Focused Software Engineer",
-  location: "Pune, India",
-  headline:
+  Name: "Gautam Bhagat",
+  Role: "Product-Focused Software Engineer",
+  Location: "Pune, India",
+  Headline:
     "I design cloud-native frontends that convert business goals into delightful experiences.",
-  bio: "Former startup engineer turned product lead with a focus on resilient design systems, shipping experiments quickly, and mentoring teams to own their outcomes.",
-  availability: "Open for senior frontend + product engineering roles",
-  contactEmail: "gautambhagat.business@gmail.com.com",
-  resumeUrl: "/resume.pdf",
-  socials: [
+  Bio: "Former startup engineer turned product lead with a focus on resilient design systems, shipping experiments quickly, and mentoring teams to own their outcomes.",
+  Availability: "Open for senior frontend + product engineering roles",
+  ContactEmail: "gautambhagat.business@gmail.com.com",
+  ResumeURL: "/resume.pdf",
+  Socials: [
     {
       platform: "GitHub",
       url: "https://github.com/gautamb02",
@@ -27,13 +27,13 @@ export const profile: ProfileData = {
       handle: "@thegautambhagat",
     },
   ],
-  stats: [
+  Stats: [
     { label: "Years shipping products", value: "7+", helper: "B2B & SaaS" },
     { label: "Features in production", value: "140+", helper: "web & mobile" },
     { label: "Design systems led", value: "3", helper: "multi-brand" },
     { label: "Avg. uplift", value: "22%", helper: "conversion metrics" },
   ],
-  experiences: [
+  Experiences: [
     {
       company: "Lightspeed Commerce",
       role: "Senior Frontend Engineer · Product Pod Lead",
@@ -83,7 +83,7 @@ export const profile: ProfileData = {
       stack: ["Angular", "RxJS", "Express", "Azure"],
     },
   ],
-  projects: [
+  Projects: [
     {
       name: "PulseOps",
       description:
@@ -112,7 +112,7 @@ export const profile: ProfileData = {
       links: { repo: "https://github.com/gautamb02/motion-cli" },
     },
   ],
-  skills: [
+  Skills: [
     {
       title: "Core Engineering",
       items: [
@@ -144,7 +144,7 @@ export const profile: ProfileData = {
       ],
     },
   ],
-  contact: [
+  Contact: [
     {
       label: "Email",
       value: "gautambhagat.business@gmail.com.com",
