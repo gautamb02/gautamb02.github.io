@@ -110,11 +110,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.05rem;
+  font-size: 1.55rem;
+  font-weight: 700;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.08rem;
 }
 
 .subtitle {
@@ -389,20 +390,25 @@ h3 {
 /* ---------- Toggle sections ---------- */
 
 .block-section {
-  padding: 0.75rem 0;
-  border-top: 1px solid var(--border);
+  padding: 3rem 0 0.5rem;
+  border-top: 1px solid var(--border-strong);
+}
+
+.block-section:first-of-type {
+  border-top: none;
+  padding-top: 0.5rem;
 }
 
 .toggle-heading {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.35rem 0.25rem;
-  margin: 0 -0.25rem;
-  border-radius: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  margin: 0 -0.5rem;
+  border-radius: 0.35rem;
   width: 100%;
   text-align: left;
   font-family: inherit;
@@ -412,11 +418,20 @@ h3 {
   background: var(--bg-hover);
 }
 
+.toggle-heading:hover .chevron {
+  color: var(--text-muted);
+}
+
+.section__icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
 .chevron {
   display: inline-flex;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--text-faint);
-  transition: transform 0.15s ease;
+  transition: transform 0.15s ease, color 0.15s ease;
   transform: rotate(0deg);
 }
 
@@ -425,11 +440,12 @@ h3 {
 }
 
 .section__content {
-  padding-top: 0.75rem;
+  padding: 1rem 0 0 2.5rem;
 }
 
 .section__description {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
 }
 
 .block-list {
