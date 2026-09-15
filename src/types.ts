@@ -25,11 +25,18 @@ export type Project = {
   description: string;
   impact: string;
   tech: string[];
-  type: "client" | "product" | "experiment";
+  type: "ai-agent" | "full-stack" | "research";
   links: {
     live?: string;
     repo?: string;
   };
+};
+
+export type Publication = {
+  title: string;
+  venue: string;
+  year: string;
+  url: string;
 };
 
 export type SkillCategory = {
@@ -43,6 +50,13 @@ export type ContactChannel = {
   href: string;
 };
 
+export type Education = {
+  institution: string;
+  degree: string;
+  period: string;
+  location: string;
+};
+
 export type ProfileData = {
   name: string;
   role: string;
@@ -52,11 +66,17 @@ export type ProfileData = {
   availability: string;
   contactEmail: string;
   resumeUrl: string;
+  orcid: {
+    id: string;
+    url: string;
+  };
   socials: SocialLink[];
   stats: Stat[];
   experiences: Experience[];
   projects: Project[];
+  publications: Publication[];
   skills: SkillCategory[];
+  education: Education;
+  achievements: string[];
   contact: ContactChannel[];
 };
-

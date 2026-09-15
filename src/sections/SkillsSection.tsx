@@ -1,39 +1,47 @@
-import Section from "../components/Section";
+import ToggleSection from "../components/ToggleSection";
+import Tag, { TagColor } from "../components/Tag";
 import { ProfileData, SkillCategory } from "../types";
 
 type SkillsSectionProps = {
   profile: ProfileData;
 };
 
-const SkillsCard = ({ category }: { category: SkillCategory }) => {
+const categoryColor: Record<string, TagColor> = {
+  Languages: "blue",
+  Frameworks: "purple",
+  "AI / Agents": "orange",
+  "Data & Cloud": "green",
+};
+
+const SkillsRow = ({ category }: { category: SkillCategory }) => {
+  const color = categoryColor[category.title] ?? "gray";
   return (
-    <article className="skills-card">
-      <h3>{category.title}</h3>
-      <ul>
+    <div className="skills-row">
+      <p className="skills-row__title">{category.title}</p>
+      <div className="tag-row">
         {category.items.map((item) => (
-          <li key={item}>{item}</li>
+          <Tag key={item} label={item} color={color} />
         ))}
-      </ul>
-    </article>
+      </div>
+    </div>
   );
 };
 
 const SkillsSection = ({ profile }: SkillsSectionProps) => {
   return (
-    <Section
+    <ToggleSection
       id="skills"
-      eyebrow="Toolkit"
-      title="A balanced stack for product velocity."
-      description="From systems thinking to pixels and perf budgets."
+      icon="🛠️"
+      title="Skills"
+      description="Languages and frameworks I ship with, plus the AI/agent-specific stack."
     >
-      <div className="skills-grid">
+      <div className="skills-list">
         {profile.skills.map((category) => (
-          <SkillsCard key={category.title} category={category} />
+          <SkillsRow key={category.title} category={category} />
         ))}
       </div>
-    </Section>
+    </ToggleSection>
   );
 };
 
 export default SkillsSection;
-

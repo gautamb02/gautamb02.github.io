@@ -1,4 +1,4 @@
-import Section from "../components/Section";
+import ToggleSection from "../components/ToggleSection";
 import { ProfileData } from "../types";
 
 type ContactSectionProps = {
@@ -7,23 +7,22 @@ type ContactSectionProps = {
 
 const ContactSection = ({ profile }: ContactSectionProps) => {
   return (
-    <Section
+    <ToggleSection
       id="contact"
-      eyebrow="Next step"
-      title="Let's build the next release together."
-      description="I reply within 24 hours and love pairing on scrappy prototypes, dashboards, and product strategy."
+      icon="✉️"
+      title="Get in touch"
+      description="Reach out about roles, collaborations, or anything agent/infra related."
     >
-      <div className="contact-grid">
+      <div className="contact-list">
         {profile.contact.map((channel) => (
-          <a key={channel.label} className="contact-card" href={channel.href} target="_blank" rel="noreferrer">
-            <p className="eyebrow">{channel.label}</p>
-            <p className="contact-card__value">{channel.value}</p>
+          <a key={channel.label} className="contact-row" href={channel.href} target="_blank" rel="noreferrer">
+            <span className="contact-row__label">{channel.label}</span>
+            <span className="contact-row__value">{channel.value}</span>
           </a>
         ))}
       </div>
-    </Section>
+    </ToggleSection>
   );
 };
 
 export default ContactSection;
-

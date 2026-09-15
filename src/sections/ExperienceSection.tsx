@@ -1,54 +1,55 @@
-import Section from "../components/Section";
-import Pill from "../components/Pill";
+import ToggleSection from "../components/ToggleSection";
+import Tag from "../components/Tag";
 import { Experience, ProfileData } from "../types";
 
 type ExperienceSectionProps = {
   profile: ProfileData;
 };
 
-const ExperienceCard = ({ experience }: { experience: Experience }) => {
+const ExperienceRow = ({ experience }: { experience: Experience }) => {
   return (
-    <article className="experience-card">
+    <article className="block-item">
       <header>
         <div>
-          <p className="eyebrow">{experience.period}</p>
           <h3>{experience.role}</h3>
           <p className="subtitle">
             {experience.company} · {experience.location}
           </p>
         </div>
-        <div className="experience-card__stack">
-          {experience.stack.map((item) => (
-            <Pill key={item} label={item} />
-          ))}
-        </div>
+        <p className="block-item__period">{experience.period}</p>
       </header>
-      <p>{experience.summary}</p>
+      <p className="block-line">{experience.summary}</p>
       <ul>
         {experience.highlights.map((highlight) => (
-          <li key={highlight}>{highlight}</li>
+          <li key={highlight} className="block-line">
+            {highlight}
+          </li>
         ))}
       </ul>
+      <div className="tag-row">
+        {experience.stack.map((item) => (
+          <Tag key={item} label={item} />
+        ))}
+      </div>
     </article>
   );
 };
 
 const ExperienceSection = ({ profile }: ExperienceSectionProps) => {
   return (
-    <Section
+    <ToggleSection
       id="experience"
-      eyebrow="Experience"
-      title="Lead pods, align stakeholders, ship measurable impact."
-      description="Snapshots of product work across SaaS, fintech, and platform teams."
+      icon="💼"
+      title="Experience"
+      description="Reverse chronological, from NudgeBee back to my first internship."
     >
-      <div className="experience-grid">
+      <div className="block-list">
         {profile.experiences.map((experience) => (
-          <ExperienceCard key={experience.company} experience={experience} />
+          <ExperienceRow key={experience.company} experience={experience} />
         ))}
       </div>
-    </Section>
+    </ToggleSection>
   );
 };
 
 export default ExperienceSection;
-

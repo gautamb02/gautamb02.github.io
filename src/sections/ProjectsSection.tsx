@@ -1,17 +1,24 @@
-import Section from "../components/Section";
-import Pill from "../components/Pill";
+import ToggleSection from "../components/ToggleSection";
+import Tag, { TagColor } from "../components/Tag";
 import { ProfileData, Project } from "../types";
 
 type ProjectsSectionProps = {
   profile: ProfileData;
 };
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const typeMeta: Record<Project["type"], { label: string; color: TagColor }> = {
+  "ai-agent": { label: "AI Agent", color: "blue" },
+  "full-stack": { label: "Full-Stack", color: "green" },
+  research: { label: "Research", color: "purple" },
+};
+
+const ProjectRow = ({ project }: { project: Project }) => {
+  const meta = typeMeta[project.type];
   return (
-    <article className="project-card">
-      <div className="project-card__header">
-        <Pill label={project.type} />
-        <div className="project-card__links">
+    <article className="block-item">
+      <header>
+        <h3>{project.name}</h3>
+        <div className="block-item__links">
           {project.links.live && (
             <a href={project.links.live} target="_blank" rel="noreferrer">
               Live
@@ -23,13 +30,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
             </a>
           )}
         </div>
-      </div>
-      <h3>{project.name}</h3>
-      <p>{project.description}</p>
-      <p className="project-card__impact">{project.impact}</p>
-      <div className="project-card__tech">
+      </header>
+      <p className="block-line">{project.description}</p>
+      <p className="block-item__impact block-line">{project.impact}</p>
+      <div className="tag-row">
+        <Tag label={meta.label} color={meta.color} />
         {project.tech.map((item) => (
-          <Pill key={item} label={item} />
+          <Tag key={item} label={item} />
         ))}
       </div>
     </article>
@@ -38,20 +45,19 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
 const ProjectsSection = ({ profile }: ProjectsSectionProps) => {
   return (
-    <Section
+    <ToggleSection
       id="projects"
-      eyebrow="Selected work"
-      title="Side projects that experiment quickly."
-      description="A blend of client engagements, internal tooling, and playful prototypes."
+      icon="🚀"
+      title="Projects"
+      description="Personal and university projects — production experience lives in the section above."
     >
-      <div className="project-grid">
+      <div className="block-list">
         {profile.projects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+          <ProjectRow key={project.name} project={project} />
         ))}
       </div>
-    </Section>
+    </ToggleSection>
   );
 };
 
 export default ProjectsSection;
-
