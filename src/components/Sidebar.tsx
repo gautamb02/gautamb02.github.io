@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import PanelIcon from "./PanelIcon";
 import { ProfileData } from "../types";
 
 const navItems = [
@@ -15,10 +16,12 @@ const navItems = [
 type SidebarProps = {
   profile: ProfileData;
   open: boolean;
+  collapsed: boolean;
   onNavigate: () => void;
+  onToggleCollapse: () => void;
 };
 
-const Sidebar = ({ profile, open, onNavigate }: SidebarProps) => {
+const Sidebar = ({ profile, open, collapsed, onNavigate, onToggleCollapse }: SidebarProps) => {
   const [active, setActive] = useState("about");
 
   useEffect(() => {
@@ -38,10 +41,19 @@ const Sidebar = ({ profile, open, onNavigate }: SidebarProps) => {
   }, []);
 
   return (
-    <aside className={`sidebar ${open ? "sidebar--open" : ""}`}>
+    <aside className={`sidebar ${open ? "sidebar--open" : ""} ${collapsed ? "sidebar--collapsed" : ""}`}>
       <div className="sidebar__workspace">
         <img className="sidebar__workspace-icon" src="/avatar.png" alt="" />
         <span>{profile.name}</span>
+        <button
+          type="button"
+          className="sidebar-collapse-button"
+          onClick={onToggleCollapse}
+          aria-label="Collapse sidebar"
+          title="Collapse sidebar"
+        >
+          <PanelIcon />
+        </button>
       </div>
       <nav className="sidebar__nav">
         {navItems.map((item) => (

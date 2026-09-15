@@ -8,7 +8,7 @@ export const profile: ProfileData = {
     "I build AI agents that reason over dashboards, logs, and conversations — and the infrastructure that keeps them fast and reliable.",
   bio: "Software Development Engineer at NudgeBee, working on an AI-agent platform for cloud debugging and SRE/Ops automation. I focus on RAG retrieval latency, multimodal reasoning over screenshots and diagrams, context engineering for long-running conversations, and memory-extraction pipelines that carry insight across sessions.",
   availability: "Open to conversations about AI agents & systems engineering",
-  contactEmail: "gautambhagat.business@gmail.com",
+  contactEmail: "igautamb05@gmail.com",
   resumeUrl: "/resume.pdf",
   orcid: {
     id: "0009-0008-2943-7579",
@@ -27,8 +27,9 @@ export const profile: ProfileData = {
     },
   ],
   stats: [
-    { label: "Companies & internships", value: "4", helper: "since 2022" },
     { label: "Public repositories", value: "42", helper: "github.com/gautamb02" },
+    { label: "Companies & internships", value: "4", helper: "since 2022" },
+    { label: "Peer-reviewed publications", value: "2", helper: "indexed on ORCID" },
     { label: "National competition finals", value: "2", helper: "SIH '23 & Tech Infusion" },
     { label: "Tech talk attendees led", value: "700+", helper: "as GFG chapter lead" },
   ],
@@ -39,13 +40,14 @@ export const profile: ProfileData = {
       period: "Nov 2025 — Present",
       location: "Pune, India",
       summary:
-        "Building the AI-agent platform powering cloud debugging and SRE/Ops automation.",
+        "Backend and AI engineer on Nudgebee, an open-source SRE copilot for Kubernetes/AWS/Azure/GCP — architecting the LLM agent pipeline, its data layer, and platform reliability.",
       highlights: [
-        "Architected the image-support system, enabling agents to ingest and reason over dashboards, screenshots, and diagrams.",
-        "Designed context-engineering strategies for long-running conversations — selecting, compressing, and carrying context across multi-turn sessions.",
-        "Built memory-extraction pipelines that distill durable facts from conversations to improve recall and continuity.",
+        "Architected multimodal support for the agent pipeline end-to-end: capability-gated vision-model routing, chat image attachments with persisted history, and a dedicated body-limit upload route.",
+        "Engineered the conversation-context system powering long-running agent sessions — interval-based distillation, history summarization, and context propagation — plus a memory-fact extraction pipeline for durable recall.",
+        "Optimized agent backend performance: parallelized per-label log-query validation to cut tail latency, and capped tool-call payload size to eliminate unbounded database growth.",
+        "Built platform-wide backend infrastructure: Cost Analyser KPIs (cache hit rate, cache savings) and a generic multi-namespace cache-invalidation layer used across the product.",
       ],
-      stack: ["Python", "RAG", "AI Agents", "MCP", "Context Engineering"],
+      stack: ["Go", "TypeScript", "RAG", "AI Agents", "Kubernetes", "PostgreSQL"],
     },
     {
       company: "Lemma Technologies",
@@ -53,23 +55,25 @@ export const profile: ProfileData = {
       period: "Dec 2024 — Nov 2025",
       location: "Pune, India",
       summary:
-        "Shipped GenAI pipelines for ad creative generation and real-time campaign forecasting.",
+        "Backend and GenAI engineer on Integral, Lemma's ad-tech platform — architecting campaign management, forecasting APIs, and GenAI-driven ad tooling.",
       highlights: [
-        "Built a GenAI pipeline generating DCO ad creatives for DOOH, mobile, web & social — using Go channels for parallelism to deliver production-ready ads in 30–50s.",
-        "Revamped the campaign forecasting engine with LLM-driven insights, delivering real-time predictions under 4 seconds.",
-        "Developed an end-user MCP client for querying UI dashboards and triggering API actions in natural language.",
+        "Designed and built the Media Plan module end-to-end: versioning, an approval/rejection workflow, sharing, and role-based access control across sales and media-planning teams.",
+        "Owned the Advertiser/Partner management APIs — dedupe constraints, multi-country geo-code support, and an ACL layer scoping access by partner account.",
+        "Engineered a GenAI pipeline generating DCO ad creatives in 30–50s using Go channels for parallelism, and sanitized/cached the campaign forecasting engine's geo-based responses for speed.",
+        "Revamped real-time campaign forecasting with LLM-driven insights, cutting prediction latency to under 4 seconds.",
       ],
-      stack: ["Go", "LLMs", "MCP", "GenAI"],
+      stack: ["Go", "MySQL", "GenAI", "LLMs", "REST APIs"],
     },
     {
       company: "Muks Robotics",
       role: "AI & ML Engineer",
       period: "Apr 2024 — Jul 2024",
       location: "Pune, India",
-      summary: "Deployed computer-vision systems for factory access control and site safety.",
+      summary:
+        "AI engineer building production computer-vision systems for physical-world access control and safety monitoring.",
       highlights: [
-        "Engineered a real-time face recognition system for factory access control across 1,500+ employees.",
-        "Deployed a PPE violation detection system with OpenCV, cutting weekly violations from ~100 to 15–20 within four weeks.",
+        "Engineered a real-time face-recognition system for factory access control, authenticating 1,500+ employees.",
+        "Built and deployed a PPE-violation detection pipeline with OpenCV, cutting weekly violations from ~100 to 15–20 within four weeks via real-time compliance alerts.",
       ],
       stack: ["Python", "OpenCV", "Computer Vision"],
     },
@@ -78,10 +82,11 @@ export const profile: ProfileData = {
       role: "Full Stack Developer",
       period: "Jan 2022 — Jul 2022",
       location: "Mumbai, India",
-      summary: "Built backends for a cab-based ad platform deployed across 150+ cabs.",
+      summary:
+        "Backend engineer building the Django services powering a cab-based ad platform deployed across 150+ cabs.",
       highlights: [
-        "Built scalable Django backends for Greenvue Ads, handling 10K+ daily API calls.",
-        "Cut server response time 40% via async views and optimized endpoints.",
+        "Built scalable Django backends handling 10K+ daily API calls for Greenvue Ads.",
+        "Cut server response time 40% through async views and optimized endpoints.",
       ],
       stack: ["Django", "Python", "PostgreSQL"],
     },
@@ -187,8 +192,8 @@ export const profile: ProfileData = {
   contact: [
     {
       label: "Email",
-      value: "gautambhagat.business@gmail.com",
-      href: "mailto:gautambhagat.business@gmail.com",
+      value: "igautamb05@gmail.com",
+      href: "mailto:igautamb05@gmail.com",
     },
     {
       label: "LinkedIn",

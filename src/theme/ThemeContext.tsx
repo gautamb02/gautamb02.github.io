@@ -6,17 +6,28 @@ type ThemeContextValue = { theme: Theme; toggle: () => void };
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 const getInitialTheme = (): Theme => {
+  if (typeof window === "undefined") return "light";
   try {
     const stored = window.localStorage.getItem("theme");
     if (stored === "light" || stored === "dark") return stored;
   } catch {
-    // localStorage unavailable — fall through to system preference
+    // localStorage unavailable — fall through to the default
   }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  // Light is the default regardless of OS/browser preference; dark only
+  // applies once a visitor explicitly toggles it (persisted above).
+  return "light";
 };
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  // Always start at "light" so the client's first render matches the
+  // prerendered (server) markup exactly — the real preference (which may
+  // differ per visitor and isn't knowable at prerender time) is applied a
+  // moment later via the effect below, avoiding a hydration mismatch.
+  const [theme, setTheme] = useState<Theme>("light");
+
+  useEffect(() => {
+    setTheme(getInitialTheme());
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

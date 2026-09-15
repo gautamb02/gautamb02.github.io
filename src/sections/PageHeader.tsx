@@ -11,7 +11,7 @@ const PageHeader = ({ profile }: PageHeaderProps) => {
       <div className="cover" style={{ backgroundImage: "url(/cover.png)" }} />
       <div className="page-head">
         <div className="page-icon">
-          <img src="/avatar.png" alt="" />
+          <img src="/avatar.png" alt="Gautam Bhagat" />
         </div>
         <h1>{profile.name}</h1>
         <div className="properties">
